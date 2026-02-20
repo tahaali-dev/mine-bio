@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://taha-malik-biodata.vercel.app/sitemap.xml

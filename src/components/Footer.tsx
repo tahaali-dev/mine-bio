@@ -1,0 +1,61 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { biodiversityData as data } from '@/lib/data';
+
+export default function Footer() {
+ return (
+  <footer id="connect" className="py-32 px-6 mt-20 border-t border-slate-100/50">
+   <div className="max-w-4xl mx-auto text-center space-y-16">
+    <motion.div
+     initial={{ opacity: 0, y: 30 }}
+     whileInView={{ opacity: 1, y: 0 }}
+     viewport={{ once: true }}
+     className="space-y-6"
+    >
+     <h2 className="text-3xl md:text-5xl font-light text-slate-800 leading-snug">
+      I'm building more than websites – I'm building a <span className="italic text-indigo-400">beautiful life</span> together.
+     </h2>
+    </motion.div>
+
+    <motion.div
+     initial={{ opacity: 0, scale: 0.95 }}
+     whileInView={{ opacity: 1, scale: 1 }}
+     transition={{ delay: 0.2 }}
+     viewport={{ once: true }}
+    >
+     <a
+      href="mailto:hello@tahax.com"
+      className="inline-block border border-slate-200 text-slate-600 px-10 py-4 rounded-full text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-all duration-500"
+     >
+      Let's Connect
+     </a>
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left pt-16 border-t border-slate-200/50">
+     <div className="space-y-4">
+      <h4 className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Contact</h4>
+      <ul className="space-y-2 text-sm text-slate-600 font-light">
+       <li>hello@tahax.com</li>
+       <li>+91 98765 43210</li>
+       <li>Indore, Madhya Pradesh</li>
+      </ul>
+     </div>
+     <div className="space-y-4">
+      <h4 className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Social</h4>
+      <div className="flex gap-6 text-sm text-slate-600 font-light">
+       <a href="#" className="hover:text-indigo-400 transition-colors">Instagram</a>
+       <a href="#" className="hover:text-indigo-400 transition-colors">LinkedIn</a>
+       <a href="#" className="hover:text-indigo-400 transition-colors">Vsco</a>
+      </div>
+     </div>
+    </div>
+
+    <div className="pt-20 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-[10px] uppercase tracking-widest">
+     <p>© 2026 {data.name}</p>
+     <p>Made with ❤️ in Indore</p>
+    </div>
+   </div>
+  </footer>
+ );
+}
