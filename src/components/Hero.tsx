@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { biodiversityData as data } from '@/lib/data';
+import { useState } from 'react';
 
 export default function Hero() {
  return (
@@ -44,7 +45,11 @@ export default function Hero() {
 
      <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-12 gap-y-6 border-l border-slate-200/50 pl-8">
       <StatBox label="Age" value={`${data.stats.age} Yrs`} />
-      <StatBox label="Height" value={data.stats.height} />
+      <StatBox
+       label="Height"
+       value={data.stats.height}
+       tooltip="this is my strength"
+      />
       <StatBox label="Hometown" value="Indore" />
       <StatBox label="Status" value={data.stats.status} />
      </div>
@@ -54,11 +59,41 @@ export default function Hero() {
  );
 }
 
-function StatBox({ label, value }: { label: string; value: string | number }) {
+function StatBox({ label, value, tooltip }: { label: string; value: string | number; tooltip?: string }) {
+ const [isHovered, setIsHovered] = useState(false);
+
  return (
-  <div className="flex flex-col">
-   <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-400 mb-1">{label}</span>
-   <span className="text-sm text-slate-700 font-medium">{value}</span>
+  <div
+   className="flex flex-col relative group cursor-help"
+   onMouseEnter={() => setIsHovered(true)}
+   onMouseLeave={() => setIsHovered(false)}
+  >
+   <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-slate-400 mb-1 leading-none">
+    {label}
+   </span>
+
+   <span className="text-sm text-slate-700 font-medium whitespace-nowrap">
+    {value}
+   </span>
+
+   <AnimatePresence>
+    {isHovered && tooltip && (
+     <motion.div
+      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      animate={{ opacity: 1, y: -45, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="absolute z-50 px-4 py-2 bg-slate-900 border border-slate-800 rounded-lg shadow-2xl pointer-events-none"
+      style={{ left: '50%', translateX: '-50%' }}
+     >
+      <p className="text-[10px] text-white font-bold uppercase tracking-widest whitespace-nowrap">
+       {tooltip}
+      </p>
+      {/* Tooltip arrow */}
+      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45" />
+     </motion.div>
+    )}
+   </AnimatePresence>
   </div>
  );
 }
