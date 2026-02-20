@@ -9,15 +9,15 @@ export default function AboutSection() {
    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
     {/* About Text */}
-    <div className="lg:col-span-7 space-y-12">
+    <div className="lg:col-span-7 space-y-16">
      <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="space-y-6"
+      className="space-y-8"
      >
-      <span className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase">the person</span>
-      <p className="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed italic">
+      <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase">the person</span>
+      <p className="text-3xl md:text-4xl font-light text-slate-800 leading-[1.4] italic">
        "{data.about}"
       </p>
      </motion.div>
@@ -27,10 +27,10 @@ export default function AboutSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: 0.2 }}
-      className="space-y-6 pt-12 border-t border-slate-100"
+      className="space-y-8 pt-16 border-t border-slate-200/50"
      >
-      <span className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase">outlook</span>
-      <p className="text-lg md:text-xl font-light text-slate-500 leading-relaxed">
+      <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase">outlook</span>
+      <p className="text-xl md:text-2xl font-light text-slate-600 leading-relaxed">
        {data.outlook}
       </p>
      </motion.div>
@@ -42,11 +42,11 @@ export default function AboutSection() {
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="space-y-10 bg-slate-50/50 p-10 rounded-2xl border border-slate-100/50 backdrop-blur-sm"
+      className="space-y-12 bg-white/40 p-10 md:p-12 rounded-2xl border border-white/60 shadow-xl shadow-slate-100/20 backdrop-blur-md"
      >
-      <div className="space-y-6">
-       <span className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase block">Family Details</span>
-       <div className="space-y-4">
+      <div className="space-y-10">
+       <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase block">Family Details</span>
+       <div className="space-y-6">
         <DetailRow label="Father" value={data.family.father} />
         <DetailRow label="Mother" value={data.family.mother} />
         <DetailRow label="Siblings" value={data.family.siblings} />
@@ -54,9 +54,9 @@ export default function AboutSection() {
        </div>
       </div>
 
-      <div className="space-y-6 pt-10 border-t border-slate-200/50">
-       <span className="text-[10px] font-bold tracking-[0.4em] text-slate-300 uppercase block">Academic Path</span>
-       <p className="text-sm text-slate-600 font-medium leading-relaxed">
+      <div className="space-y-6 pt-12 border-t border-slate-200/50">
+       <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase block">Academic Path</span>
+       <p className="text-base text-slate-700 font-medium leading-relaxed">
         {data.education}
        </p>
       </div>
@@ -70,10 +70,10 @@ export default function AboutSection() {
 
 function DetailRow({ label, value }: { label: string; value: string }) {
  return (
-  <div className="flex justify-between items-baseline gap-4 group">
-   <span className="text-[10px] uppercase tracking-widest text-slate-400 group-hover:text-indigo-400 transition-colors">{label}</span>
+  <div className="flex justify-between items-baseline gap-6 group">
+   <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold group-hover:text-indigo-400 transition-colors whitespace-nowrap">{label}</span>
    <div className="flex-1 border-b border-dotted border-slate-200" />
-   <span className="text-sm text-slate-600 font-light">{value}</span>
+   <span className="text-sm md:text-base text-slate-700 font-light text-right">{value}</span>
   </div>
  );
 }

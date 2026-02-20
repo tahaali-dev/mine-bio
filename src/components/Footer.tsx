@@ -11,10 +11,10 @@ export default function Footer() {
      initial={{ opacity: 0, y: 30 }}
      whileInView={{ opacity: 1, y: 0 }}
      viewport={{ once: true }}
-     className="space-y-6"
+     className="space-y-8"
     >
-     <h2 className="text-3xl md:text-5xl font-light text-slate-800 leading-snug">
-      I'm building more than websites – I'm building a <span className="italic text-indigo-400">beautiful life</span> together.
+     <h2 className="text-4xl md:text-6xl font-light text-slate-800 leading-tight">
+      I'm building more than websites – I'm building a <span className="italic text-indigo-400 font-normal">beautiful life</span> together.
      </h2>
     </motion.div>
 
@@ -26,32 +26,32 @@ export default function Footer() {
     >
      <a
       href="mailto:hello@tahax.com"
-      className="inline-block border border-slate-200 text-slate-600 px-10 py-4 rounded-full text-sm font-medium hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-all duration-500"
+      className="inline-block border border-slate-300 text-slate-600 px-12 py-5 rounded-full text-sm font-semibold tracking-wide hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-all duration-500 shadow-sm"
      >
       Let's Connect
      </a>
     </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left pt-16 border-t border-slate-200/50">
-     <div className="space-y-4">
-      <h4 className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Contact</h4>
-      <ul className="space-y-2 text-sm text-slate-600 font-light">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-left pt-20 border-t border-slate-200/50">
+     <div className="space-y-6">
+      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Contact</h4>
+      <ul className="space-y-4 text-base md:text-lg text-slate-600 font-light">
        <li>hello@tahax.com</li>
        <li>+91 98765 43210</li>
-       <li>Indore, Madhya Pradesh</li>
+       <li className="text-slate-400 text-sm">{data.stats.hometown}</li>
       </ul>
      </div>
-     <div className="space-y-4">
-      <h4 className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Social</h4>
-      <div className="flex gap-6 text-sm text-slate-600 font-light">
-       <a href="#" className="hover:text-indigo-400 transition-colors">Instagram</a>
-       <a href="#" className="hover:text-indigo-400 transition-colors">LinkedIn</a>
-       <a href="#" className="hover:text-indigo-400 transition-colors">Vsco</a>
+     <div className="space-y-6">
+      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Social</h4>
+      <div className="flex flex-wrap gap-8 text-base text-slate-600 font-light">
+       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">Instagram</a>
+       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">LinkedIn</a>
+       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">Vsco</a>
       </div>
      </div>
     </div>
 
-    <div className="pt-20 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-[10px] uppercase tracking-widest">
+    <div className="pt-24 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-[10px] uppercase tracking-[0.4em] font-medium">
      <p>© 2026 {data.name}</p>
      <p>Made with ❤️ in Indore</p>
     </div>
