@@ -4,7 +4,7 @@ import GridSection from '@/components/GridSection';
 import Footer from '@/components/Footer';
 import NavDots from '@/components/NavDots';
 import BackgroundGradients from '@/components/BackgroundGradients';
-import { biodiversityData as data } from '@/lib/data';
+import { biodata as data } from '@/lib/data';
 
 export default function Page() {
   return (
@@ -14,11 +14,12 @@ export default function Page() {
       <Hero />
       <AboutSection />
 
-      {data.sections.map((section, index) => (
+      {data.sections.map((section: any, index: number) => (
         <GridSection
           key={section.title}
           id={`section-${index}`}
           title={section.title}
+          description={section.description}
           images={section.images}
           index={index}
         />

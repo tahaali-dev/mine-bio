@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { biodiversityData as data } from '@/lib/data';
+import { biodata as data } from '@/lib/data';
 
 export default function Footer() {
  return (
@@ -14,8 +14,11 @@ export default function Footer() {
      className="space-y-8"
     >
      <h2 className="text-4xl md:text-6xl font-light text-slate-800 leading-tight">
-      I'm building more than websites – I'm building a <span className="italic text-indigo-400 font-normal">beautiful life</span> together.
+      {data.final.title}
      </h2>
+     <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-2xl mx-auto">
+      {data.final.message}
+     </p>
     </motion.div>
 
     <motion.div
@@ -25,29 +28,26 @@ export default function Footer() {
      viewport={{ once: true }}
     >
      <a
-      href="mailto:hello@tahax.com"
+      href={`mailto:${data.final.email}`}
       className="inline-block border border-slate-300 text-slate-600 px-12 py-5 rounded-full text-sm font-semibold tracking-wide hover:bg-slate-800 hover:text-white hover:border-slate-800 transition-all duration-500 shadow-sm"
      >
-      Let's Connect
+      Begin a Conversation
      </a>
     </motion.div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-left pt-20 border-t border-slate-200/50">
      <div className="space-y-6">
-      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Contact</h4>
+      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Reach Out</h4>
       <ul className="space-y-4 text-base md:text-lg text-slate-600 font-light">
-       <li>hello@tahax.com</li>
-       <li>+91 98765 43210</li>
-       <li className="text-slate-400 text-sm">{data.stats.hometown}</li>
+       <li>{data.final.email}</li>
+       <li className="text-slate-400 text-sm">{data.stats.location}</li>
       </ul>
      </div>
      <div className="space-y-6">
-      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Social</h4>
-      <div className="flex flex-wrap gap-8 text-base text-slate-600 font-light">
-       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">Instagram</a>
-       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">LinkedIn</a>
-       <a href="#" className="hover:text-indigo-400 transition-all duration-300 border-b border-transparent hover:border-indigo-400 pb-1">Vsco</a>
-      </div>
+      <h4 className="text-[11px] uppercase tracking-[0.4em] text-slate-400 font-bold">Roots</h4>
+      <p className="text-base md:text-lg text-slate-600 font-light">
+       Based in Indore, building a life with purpose and sincerity.
+      </p>
      </div>
     </div>
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { biodiversityData as data } from '@/lib/data';
+import { biodata as data } from '@/lib/data';
 
 export default function NavDots() {
   const [activeSection, setActiveSection] = useState('hero');

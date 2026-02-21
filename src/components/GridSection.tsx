@@ -6,11 +6,12 @@ import Image from 'next/image';
 interface GridSectionProps {
   id: string;
   title: string;
+  description?: string;
   images: string[];
   index: number;
 }
 
-export default function GridSection({ id, title, images, index }: GridSectionProps) {
+export default function GridSection({ id, title, description, images, index }: GridSectionProps) {
   // Grid Span Logic per index for variety
   const getSpanClass = (idx: number, sIdx: number) => {
     const patterns = [
@@ -24,19 +25,24 @@ export default function GridSection({ id, title, images, index }: GridSectionPro
 
   return (
     <section id={id} className="py-24 max-w-[1280px] mx-auto px-6">
-      <div className="flex items-center gap-10 mb-20 px-2">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 px-2 items-end">
         <motion.div
-          className="flex flex-col"
+          className="lg:col-span-5 flex flex-col"
           initial={{ opacity: 0, x: -10 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 mb-2 uppercase">SECTION 0{index + 1}</span>
-          <h2 className="text-2xl md:text-3xl font-light text-slate-800 tracking-tight lowercase">
+          {/* <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 mb-4 uppercase">SECTION 0{index + 1}</span> */}
+          <h2 className="text-3xl md:text-4xl font-light text-slate-800 tracking-tight  mb-6">
             {title}
           </h2>
+          {description && (
+            <p className="text-lg text-slate-500 font-light leading-relaxed max-w-md">
+              {description}
+            </p>
+          )}
         </motion.div>
-        <div className="flex-1 h-px bg-slate-200/50" />
+        <div className="hidden lg:block lg:col-span-7 h-px bg-slate-200/50 mb-6" />
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">

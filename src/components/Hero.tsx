@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { biodiversityData as data } from '@/lib/data';
+import { biodata as data } from '@/lib/data';
 import { useState } from 'react';
 
 export default function Hero() {
@@ -15,7 +15,7 @@ export default function Hero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
      >
-      {data.industry} Engineering
+      {data.heroTitle}
      </motion.p>
 
      <motion.h1
@@ -39,11 +39,11 @@ export default function Hero() {
     >
      <div className="max-w-md">
       <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed">
-       {data.role} focused on modern web architectures. Building digital solutions with a blend of logic and aesthetics.
+       {data.heroDescription}
       </p>
      </div>
 
-     <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-12 gap-y-6 border-l border-slate-200/50 pl-8">
+     <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-6 border-l border-slate-200/50 pl-8">
       <StatBox label="Age" value={`${data.stats.age} Yrs`} />
       <StatBox
        label="Height"
@@ -51,7 +51,7 @@ export default function Hero() {
        tooltip="this is my strength"
       />
       <StatBox label="Hometown" value="Indore" />
-      <StatBox label="Status" value={data.stats.status} />
+      <StatBox label="Occupation" value={data.role} />
      </div>
     </motion.div>
    </div>
