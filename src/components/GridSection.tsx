@@ -25,7 +25,7 @@ export default function GridSection({ id, title, description, images, index }: G
 
   return (
     <section id={id} className="py-24 max-w-[1280px] mx-auto px-6">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20 px-2 items-end">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-6 px-2 items-end">
         <motion.div
           className="lg:col-span-5 flex flex-col"
           initial={{ opacity: 0, x: -10 }}
@@ -36,11 +36,11 @@ export default function GridSection({ id, title, description, images, index }: G
           <h2 className="text-3xl md:text-4xl font-light text-slate-800 tracking-tight  mb-6">
             {title}
           </h2>
-          {description && (
+          {/* {description && (
             <p className="text-lg text-slate-500 font-light leading-relaxed max-w-md">
               {description}
             </p>
-          )}
+          )} */}
         </motion.div>
         <div className="hidden lg:block lg:col-span-7 h-px bg-slate-200/50 mb-6" />
       </div>
