@@ -49,7 +49,7 @@ export default function GridSection({ id, title, description, images, index }: G
   const displayImages = shuffledImages.length > 0 ? shuffledImages : images;
 
   return (
-    <section id={id} className="py-24 max-w-[1280px] mx-auto px-6">
+    <section id={id} className="py-12 md:py-24 max-w-[1280px] mx-auto px-6">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-6 px-2 items-end">
         <motion.div
           className="lg:col-span-5 flex flex-col"
@@ -68,13 +68,17 @@ export default function GridSection({ id, title, description, images, index }: G
         {displayImages.map((src, idx) => (
           <motion.div
             key={`${id}-${src}-${idx}`}
-            className={`relative overflow-hidden group rounded-xs border border-white/10 shadow-sm ${getSpanClass(idx, index)}`}
+            className={`relative overflow-hidden group rounded-xs border border-white/10 shadow-sm bg-slate-100 ${getSpanClass(idx, index)}`}
             style={{
               rotate: `${randomRots[idx] || 0}deg`
             }}
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: (idx % 6) * 0.05 }}
+            transition={{
+              duration: 0.8,
+              delay: (idx % 4) * 0.1,
+              ease: [0.22, 1, 0.36, 1]
+            }}
             viewport={{ once: true, margin: "-50px" }}
           >
             <div className="w-full h-full relative">
@@ -83,9 +87,11 @@ export default function GridSection({ id, title, description, images, index }: G
                 alt={`${title} element`}
                 fill
                 className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                priority={index === 0 && idx < 2}
+                quality={85}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-700 pointer-events-none" />
+              <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-700 pointer-events-none" />
             </div>
           </motion.div>
         ))}

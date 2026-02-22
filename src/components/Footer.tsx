@@ -8,7 +8,7 @@ export default function Footer() {
  const whatsappUrl = `https://wa.me/91${whatsappNumber}`;
 
  return (
-  <footer id="connect" className="py-32 px-6 mt-20 border-t border-slate-100/50">
+  <footer id="connect" className="py-16 md:py-32 px-6 mt-10 md:mt-20 border-t border-slate-100/50">
    <div className="max-w-4xl mx-auto text-center space-y-16">
     <motion.div
      initial={{ opacity: 0, y: 30 }}

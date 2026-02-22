@@ -8,19 +8,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://your-domain.com"),
-  title: "My Journey | Taha Mill Wala Biodata",
-  description: "A storytelling journey of Taha Mill Wala - Software Developer, Photographer, and Fragrance Enthusiast.",
+  metadataBase: new URL("https://tahamill.com"),
+  title: "A Life in Simple Words | Taha Mill Wala",
+  description: "Explore the personal journey, passions, and simple life of Taha Mill Wala. A software developer and photography enthusiast from Indore.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Taha Mill Wala Biodata",
+    title: "Taha Mill Wala",
   },
   openGraph: {
-    title: "Taha Mill Wala Biodata",
-    description: "I'm building more than websites – I'm building a beautiful life together.",
-    url: "https://your-domain.com",
+    title: "Taha Mill Wala | Biodata",
+    description: "I live a simple and calm life, focusing on honesty, responsibilities, and growth.",
+    url: "https://tahamill.com",
     siteName: "Taha Mill Wala",
     images: [
       {

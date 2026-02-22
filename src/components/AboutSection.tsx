@@ -5,11 +5,11 @@ import { biodata as data } from '@/lib/data';
 
 export default function AboutSection() {
  return (
-  <section id="about" className="py-32 px-6 max-w-[1280px] mx-auto overflow-hidden">
+  <section id="about" className="py-16 md:py-32 px-6 max-w-[1280px] mx-auto overflow-hidden">
    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
     {/* About Text */}
-    <div className="lg:col-span-7 sticky top-32 self-start">
+    <div className="lg:col-span-7 self-start">
      <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
