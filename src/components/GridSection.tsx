@@ -86,18 +86,20 @@ export default function GridSection({ id, title, description, images, index }: G
                 src={src}
                 alt={`${title} element`}
                 fill
-                className="object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105 active:grayscale-0"
+                className="object-cover transition-all duration-1000 md:grayscale md:group-hover:grayscale-0 group-hover:scale-105"
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 priority={index === 0 && idx < 2}
                 quality={85}
               />
-              {/* This overlay handles the smooth "scroll reveal" color effect for mobile */}
+              {/* Mobile Grayscale Reveal Overlay */}
               <motion.div
-                className="absolute inset-0 bg-white group-hover:opacity-0 transition-opacity duration-1000 mix-blend-color pointer-events-none md:hidden"
+                className="absolute inset-0 bg-white/1 backdrop-grayscale md:hidden pointer-events-none"
                 initial={{ opacity: 1 }}
                 whileInView={{ opacity: 0 }}
-                viewport={{ margin: "-20% 0px -20% 0px" }}
+                viewport={{ amount: 0.5, once: true }}
+                transition={{ duration: 1, ease: "easeOut" }}
               />
+              {/* Subtle Darkening Overlay */}
               <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-700 pointer-events-none" />
             </div>
           </motion.div>
