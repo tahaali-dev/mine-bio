@@ -4,7 +4,7 @@ export const biodata = {
  lastName: "Mill",
  role: "Software Developer",
  heroTitle: "This is me, in simple words",
- heroDescription: "I work in tech. Outside of work, I live a simple life and try to stay calm, honest, and consistent in how I show up every day.",
+ heroDescription: "I work in tech, and outside of work, I keep my life simple and calm.",
  industry: "Technology",
  stats: {
   age: 25,
@@ -26,16 +26,16 @@ export const biodata = {
  career: {
   current: "Software Developer at Hexcode Designs Pvt Ltd",
   income: "DM for income details.",
-  insta: "https://instagram.com/taha.mill"
+  insta: "https://www.instagram.com/tahas.diary/"
  },
  milestones: {
   home: "Yes, I have a house. It is small, but me and my brother purchased it from our hard work."
  },
- about: "I like a simple routine and a peaceful way of living. I take my responsibilities seriously and try to be steady in my actions. Family matters to me, and I stay connected to my roots. I’m not perfect, but I try to be clear in my intentions and fair in how I treat people.",
- outlook: "For me, a relationship should feel safe and respectful. I believe in talking things through, supporting each other, and building life step by step. I’m looking for someone with whom daily life feels calm, honest, and steady.",
+ // about: "I like a simple routine and a peaceful way of living. I take my responsibilities seriously and try to be steady in my actions. Family matters to me, and I stay connected to my roots. I’m not perfect, but I try to be clear in my intentions and fair in how I treat people.",
+ about: "I live a simple and calm life, take my responsibilities seriously, and try to be steady in what I do. Family matters to me, and I stay connected to my roots. I’m not perfect, but I try to be honest in my intentions and fair with people. I believe a relationship should feel safe and respectful, with open conversations, mutual support, and growing together step by step.",
  sections: [
   {
-   title: "Camera and me",
+   title: "Through My Camera",
    description: "I travel when I get the chance and like taking photos of places I visit. It helps me take a break from routine and see things from a different view. I prefer simple trips and quiet places.",
    images: [
     "/travel/20240218_214153.jpg",
@@ -85,7 +85,7 @@ export const biodata = {
    ],
   },
   {
-   title: "My heart in attars",
+   title: "Scent Notes",
    description: "I like attars and fragrances and collect them in my free time. I enjoy good scents and taking care of how I present myself. It’s just something I like and spend time on when I want to slow down.",
    images: [
     "/frags/20241018_203322.jpg",
@@ -139,6 +139,7 @@ export const biodata = {
  final: {
   title: "Looking Ahead",
   message: "I’m at a stage where I want to move into the next phase of life with the right person.",
-  email: "hello@tahax.com",
+  email: "tahaali.css@gmail.com",
+  phone: "9424311753",
  },
 };

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface GridSectionProps {
   id: string;
@@ -12,16 +13,40 @@ interface GridSectionProps {
 }
 
 export default function GridSection({ id, title, description, images, index }: GridSectionProps) {
-  // Grid Span Logic per index for variety
+  const [shuffledImages, setShuffledImages] = useState<string[]>([]);
+  const [randomRots, setRandomRots] = useState<number[]>([]);
+
+  useEffect(() => {
+    // Shuffle images and generate subtle random rotations on mount
+    const shuffled = [...images].sort(() => Math.random() - 0.5);
+    const rotations = images.map(() => (Math.random() - 0.5) * 2); // -1 to 1 degree
+    setShuffledImages(shuffled);
+    setRandomRots(rotations);
+  }, [images]);
+
+  // Grid Span Logic for a dense, balanced editorial feel
   const getSpanClass = (idx: number, sIdx: number) => {
     const patterns = [
-      ["md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-1", "md:col-span-2 md:row-span-1"],
-      ["md:col-span-1 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-1", "md:col-span-2 md:row-span-1"],
-      ["md:col-span-2 md:row-span-1", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-2", "md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1"]
+      [
+        "md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-2",
+        "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-1", "md:col-span-2 md:row-span-1",
+        "md:col-span-1 md:row-span-1",
+      ],
+      [
+        "md:col-span-1 md:row-span-2", "md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1",
+        "md:col-span-1 md:row-span-1", "md:col-span-2 md:row-span-1", "md:col-span-1 md:row-span-2",
+      ],
+      [
+        "md:col-span-2 md:row-span-1", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-2",
+        "md:col-span-2 md:row-span-2", "md:col-span-1 md:row-span-1", "md:col-span-1 md:row-span-1",
+      ]
     ];
     const currentPattern = patterns[sIdx % patterns.length];
     return currentPattern[idx % currentPattern.length];
   };
+
+  // We use images if shuffled list isn't ready yet (hydration safety)
+  const displayImages = shuffledImages.length > 0 ? shuffledImages : images;
 
   return (
     <section id={id} className="py-24 max-w-[1280px] mx-auto px-6">
@@ -32,27 +57,24 @@ export default function GridSection({ id, title, description, images, index }: G
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          {/* <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 mb-4 uppercase">SECTION 0{index + 1}</span> */}
-          <h2 className="text-3xl md:text-4xl font-light text-slate-800 tracking-tight  mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-slate-800 tracking-tight mb-6">
             {title}
           </h2>
-          {/* {description && (
-            <p className="text-lg text-slate-500 font-light leading-relaxed max-w-md">
-              {description}
-            </p>
-          )} */}
         </motion.div>
         <div className="hidden lg:block lg:col-span-7 h-px bg-slate-200/50 mb-6" />
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-        {images.map((src, idx) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px] grid-flow-dense">
+        {displayImages.map((src, idx) => (
           <motion.div
-            key={`${id}-${idx}`}
-            className={`relative overflow-hidden group rounded-sm ${getSpanClass(idx, index)}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: (idx % 4) * 0.1 }}
+            key={`${id}-${src}-${idx}`}
+            className={`relative overflow-hidden group rounded-xs border border-white/10 shadow-sm ${getSpanClass(idx, index)}`}
+            style={{
+              rotate: `${randomRots[idx] || 0}deg`
+            }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: (idx % 6) * 0.05 }}
             viewport={{ once: true, margin: "-50px" }}
           >
             <div className="w-full h-full relative">

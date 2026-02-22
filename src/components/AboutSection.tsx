@@ -9,7 +9,7 @@ export default function AboutSection() {
    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
 
     {/* About Text */}
-    <div className="lg:col-span-7 space-y-16">
+    <div className="lg:col-span-7 sticky top-32 self-start">
      <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ export default function AboutSection() {
       className="space-y-8"
      >
       <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase">the person</span>
-      <p className="text-3xl md:text-4xl font-light text-slate-800 leading-[1.4] italic">
+      <p className="text-xl md:text-2xl font-light text-slate-600 leading-relaxed">
        {data.about.split("I’m not perfect,").map((part, i, arr) => (
         <span key={i}>
          {part}
@@ -28,19 +28,6 @@ export default function AboutSection() {
          )}
         </span>
        ))}
-      </p>
-     </motion.div>
-
-     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.2 }}
-      className="space-y-8 pt-16 border-t border-slate-200/50"
-     >
-      <span className="text-[11px] font-bold tracking-[0.4em] text-slate-400 uppercase">outlook</span>
-      <p className="text-xl md:text-2xl font-light text-slate-600 leading-relaxed">
-       {data.outlook}
       </p>
      </motion.div>
     </div>
